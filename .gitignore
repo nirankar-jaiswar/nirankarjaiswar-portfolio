@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Production build
+dist/
+build/
+
+# Vite cache
+.vite/
+.vite-temp/
+
+# TypeScript build info
+*.tsbuildinfo
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# OS files
+.DS_Store
+
+# Env files
+.env
+.env.*
+!.env.example
+
