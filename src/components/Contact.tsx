@@ -1,33 +1,31 @@
 "use client"
 
-import type React from "react"
-
-import { useState } from "react"
 import { motion } from "framer-motion"
-import { Mail, Phone, MapPin, Send, FileText } from "lucide-react"
+import { Mail, Phone, MapPin } from "lucide-react"
 import thumbnail from "../assets/preview.png"
 import cv from "../assets/Nirankar_Jaiswar.pdf"
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  })
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
+  // const [formData, setFormData] = useState({
+  //   name: "",
+  //   email: "",
+  //   subject: "",
+  //   message: "",
+  // })
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log("Form submitted:", formData)
-    // Reset form
-    setFormData({ name: "", email: "", subject: "", message: "" })
-    alert("Message sent successfully!")
-  }
+  // const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  //   const { name, value } = e.target
+  //   setFormData((prev) => ({ ...prev, [name]: value }))
+  // }
+
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault()
+  //   console.log("Form submitted:", formData)
+  //   // Reset form
+  //   setFormData({ name: "", email: "", subject: "", message: "" })
+  //   alert("Message sent successfully!")
+  // }
 
   return (
     <section id="contact" className="py-20 bg-gray-900">
