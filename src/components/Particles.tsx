@@ -84,9 +84,10 @@ export default function Particles({ className }: ParticlesProps) {
         const dx = p.x - mouse.x
         const dy = p.y - mouse.y
         const dist = Math.sqrt(dx * dx + dy * dy)
-        if (dist < mouse.radius) {
-          p.x += (dx / dist) * 5
-          p.y += (dy / dist) * 5
+        if (dist < mouse.radius && dist > 0.1) {
+          const repulseFactor = (mouse.radius - dist) / mouse.radius
+          p.x += (dx / dist) * repulseFactor * 1.5
+          p.y += (dy / dist) * repulseFactor * 1.5
         }
 
         drawParticle(p)

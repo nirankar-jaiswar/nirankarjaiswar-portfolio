@@ -247,7 +247,7 @@ export default function Contact() {
               <a
                 href={cv}
                 download
-                className="inline-flex items-center mt-2 gap-2 px-5 py-3 bg-purple-600 hover:bg-purple-700 text-gray-200 rounded-md font-medium transition-colors"
+                className="inline-flex items-center mt-2 gap-2 px-5 py-3 bg-purple-600 hover:bg-purple-700 text-gray-200 rounded-md transition-transform transform hover:scale-105 font-medium"
               >
                 ⬇ Download
               </a>

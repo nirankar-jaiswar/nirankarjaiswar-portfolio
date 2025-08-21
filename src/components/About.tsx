@@ -46,13 +46,13 @@ export default function About() {
               and vehicle re-marketing industries. I’ve built everything from customer dashboards to white-label auction platforms, combining clean code, user-focused design, and performance-first development.
             </p>
             <p className="text-gray-300 mb-4">
-              My expertise spans frontend (React, Vue, TypeScript), backend (Node.js, Express), and DevOps (AWS, Docker, Jenkins). I’ve streamlined deployments, optimized performance, and even reduced frontend bugs by 40% through modular design and reviews.
+              My expertise spans frontend (React, Vue, Javascript) and backend (Node.js, Express). I’ve worked closely with CI/CD tools like Azure DevOps and Jenkins to ensure smooth build and deployment processes, verifying successful builds and functionality across test environments. I’ve also used Grafana for monitoring application performance. This hands-on involvement has helped me understand deployment pipelines, improve code quality, and reduce frontend bugs by 40% through modular design and code reviews.
             </p>
             <p className="text-gray-300 mb-4">
              Currently, I’m pursuing a Master of IT in Wellington, where I’m diving deeper into AI, blockchain, and cloud technologies to complement my industry experience.
             </p>
             <p className="text-gray-300">
-              Outside of work, I enjoy exploring new technologies, contributing to open-source, mentoring junior developers, and occasionally leading community events.
+              Outside of work, I enjoy exploring new tools and applying what I learn through structured assignments and independent experiments, staying up-to-date with industry trends to continuously grow as a developer.
             </p>
           </motion.div>
 
@@ -78,7 +78,7 @@ export default function About() {
             <motion.div whileHover={{ y: -5 }} className="bg-gray-700 p-6 rounded-lg">
               <Database className="text-purple-400 mb-4" size={36} />
               <h4 className="text-xl font-semibold mb-2">Database</h4>
-              <p className="text-gray-400">Designing efficient data models and queries</p>
+              <p className="text-gray-400">Working with queries, data fetching, and integration with backend APIs</p>
             </motion.div>
 
             <motion.div whileHover={{ y: -5 }} className="bg-gray-700 p-6 rounded-lg">

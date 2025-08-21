@@ -133,7 +133,7 @@ export default function Projects() {
             href="https://github.com/nirankar-jaiswar"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-md transition-colors font-medium"
+            className="inline-block px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-md transition-transform transform hover:scale-105 font-medium "
           >
             View More Projects
           </a>

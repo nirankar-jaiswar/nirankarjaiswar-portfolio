@@ -6,11 +6,11 @@ const skills = [
   { name: "React.js", level: 85 },
   { name: "Vue.js", level: 85 },
   { name: "Javascript", level: 92 },
-  { name: "CSS3/SCSS", level: 90 },
-  { name: "TypeScript", level: 85 },
+  { name: "CSS3/SCSS", level: 80 },
+  { name: "TypeScript", level: 75 },
   { name: "Next.js", level: 60 },
   { name: "Tailwind CSS", level: 55 },
-  { name: "Node.js", level: 80 },
+  { name: "Node.js", level: 75 },
   { name: "Express.js", level: 78 },
   { name: "MongoDB", level: 75 },
   { name: "PostgreSQL/SQL", level: 70 },
@@ -37,7 +37,8 @@ const technologies = [
   "Docker",
   "AWS",
   "Vercel",
-  "Netlify",
+  "Ant Design",
+  "Material UI",
 ]
 
 export default function Skills() {
