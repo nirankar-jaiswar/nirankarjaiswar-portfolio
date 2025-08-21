@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ArrowDown, Github, Linkedin, Twitter } from "lucide-react"
+import { ArrowDown, Github, Linkedin } from "lucide-react"
 import { Typewriter } from "react-simple-typewriter"
 import profileImage from "./../assets/nirankar.png"
 import Particles from "./Particles"
