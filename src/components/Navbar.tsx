@@ -52,7 +52,7 @@ export default function Navbar() {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 * index }}
-              className="text-gray-300 hover:text-purple-400 transition-colors"
+              className="text-gray-300 hover:text-purple-400 transition-colors  transform hover:scale-105 font-medium"
             >
               {item.name}
             </motion.a>

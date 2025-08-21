@@ -78,15 +78,21 @@ export default function Hero() {
               transition={{ delay: 0.6 }}
               className="flex flex-wrap gap-4"
             >
-              <a
+              {/* <a
                 href="#contact"
                 className="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-md transition-colors font-medium"
+              >
+                Get in Touch
+              </a> */}
+              <a
+                href="#contact"
+                className="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-md transition-transform transform hover:scale-105 font-medium"
               >
                 Get in Touch
               </a>
               <a
                 href="#projects"
-                className="px-6 py-3 border border-purple-600 text-purple-400 hover:bg-purple-600/10 rounded-md transition-colors font-medium"
+                className="px-6 py-3 border border-purple-600 text-purple-400 hover:bg-purple-600/10 rounded-md transition-transform transform hover:scale-105 font-medium"
               >
                 View Projects
               </a>
@@ -114,14 +120,14 @@ export default function Hero() {
               >
                 <Linkedin size={24} />
               </a>
-              <a
+              {/* <a
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"
               >
                 <Twitter size={24} />
-              </a>
+              </a> */}
             </motion.div>
           </motion.div>
 
