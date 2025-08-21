@@ -2,14 +2,20 @@
 
 import { motion } from "framer-motion"
 import { ArrowDown, Github, Linkedin, Twitter } from "lucide-react"
+import { Typewriter } from "react-simple-typewriter"
 import profileImage from "./../assets/nirankar.png"
+import Particles from "./Particles"
 
 export default function Hero() {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      <Particles className="absolute inset-0 z-10 pointer-events-none" />
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black opacity-90"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(120,50,255,0.15),transparent_70%)]"></div>
+
+        {/* <div className="absolute -top-20 -left-20 w-96 h-96 rounded-full bg-purple-500/20 animate-pulse-slow"></div>
+        <div className="absolute -bottom-20 -right-20 w-72 h-72 rounded-full bg-pink-400/20 animate-pulse-slow delay-2000"></div> */}
       </div>
 
       <div className="container mx-auto px-4 z-10 pt-20">
@@ -37,13 +43,25 @@ export default function Hero() {
               Nirankar Jaiswar
             </motion.h1>
             <motion.h2
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4 }}
-              className="text-2xl md:text-3xl font-semibold text-gray-300 mb-6"
-            >
-              Full Stack Developer <span className="text-purple-400">with Frontend Focus</span>
-            </motion.h2>
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.4 }}
+                  className="text-2xl md:text-3xl font-semibold text-gray-300 mb-6"
+                >
+                  <span className="text-purple-400">I am a </span>
+                  <span className="text-white">
+                    <Typewriter
+                      words={['Full Stack Developer', 'Frontend Specialist', 'AI & Emerging Tech Enthusiast']}
+                      loop={0} // 0 = infinite
+                      cursor
+                      cursorStyle="|"
+                      typeSpeed={70}
+                      deleteSpeed={50}
+                      delaySpeed={2000}
+                    />
+                  </span>
+                </motion.h2>
+
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
