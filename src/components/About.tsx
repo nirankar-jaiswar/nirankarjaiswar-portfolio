@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import { Code, Layout, Server, Database } from "lucide-react"
 import img from "../assets/portfolio.jpg"
 
-export default function About() {
+const About = () => {
   return (
     <section id="about" className="py-20 bg-gray-800 relative overflow-hidden">
       {/* Background image */}
@@ -92,3 +92,5 @@ export default function About() {
     </section>
   )
 }
+
+export default About

@@ -6,7 +6,9 @@ import { Typewriter } from "react-simple-typewriter"
 import profileImage from "./../assets/nirankar.png"
 import Particles from "./Particles"
 
-export default function Hero() {
+
+
+const Hero = () => {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       <Particles className="absolute inset-0 z-10 pointer-events-none" />
@@ -166,3 +168,6 @@ export default function Hero() {
     </section>
   )
 }
+
+
+export default Hero

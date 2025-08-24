@@ -11,45 +11,38 @@ import Contact from "./components/Contact"
 import Footer from "./components/Footer"
 import Loader from "./components/Loader"
 
-function App() {
-  const [loading, setLoading] = useState(true)
+const App = () => {
+  const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setLoading(false)
     }, 2000)
+
+    return () => clearTimeout(timer) 
   }, [])
-  
+
   return (
-    <>
     <div className="bg-gray-900 text-gray-100 min-h-screen">
-        <AnimatePresence>
-          {loading ? (
-            <Loader key="loader" />
-          ) : (
-            <>
-              <Navbar />
-              <main>
-                <Hero />
-                <About />
-                <Skills />
-                <Projects />
-                <Contact />
-              </main>
-              <Footer />
-            </>
-          )}
-        </AnimatePresence>
-      </div></>
+      <AnimatePresence>
+        {loading ? (
+          <Loader key="loader" />
+        ) : (
+          <>
+            <Navbar />
+            <main>
+              <Hero />
+              <About />
+              <Skills />
+              <Projects />
+              <Contact />
+            </main>
+            <Footer />
+          </>
+        )}
+      </AnimatePresence>
+    </div>
   )
 }
 
 export default App
-
-// import Test from './Test'
-
-// function App() {
-//   return <Test />
-// }
-
-// export default App

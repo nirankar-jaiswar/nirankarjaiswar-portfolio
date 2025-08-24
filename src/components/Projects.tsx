@@ -7,7 +7,16 @@ import auto from "../assets/auto.jpg"
 import insurance from "../assets/insurance.jpg"
 import portfolio from "../assets/portfolio.jpg"
 
-const projects = [
+interface Project {
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
+  github?: string;
+  demo?: string;
+}
+
+const projects: Project[] = [
   {
     title: "Enterprise Vehicle Auction Platform",
     description:
@@ -46,7 +55,7 @@ const projects = [
   },
 ]
 
-export default function Projects() {
+const Projects = () => {
   return (
     <section id="projects" className="py-20 bg-gradient-to-br  from-gray-900 via-gray-800 to-black opacity-100">
       <div className="container mx-auto px-4">
@@ -142,3 +151,4 @@ export default function Projects() {
     </section>
   )
 }
+export default Projects;

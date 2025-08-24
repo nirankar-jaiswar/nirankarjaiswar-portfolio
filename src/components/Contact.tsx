@@ -5,7 +5,7 @@ import { Mail, Phone, MapPin } from "lucide-react"
 import thumbnail from "../assets/preview.png"
 import cv from "../assets/Nirankar_Jaiswar.pdf"
 
-export default function Contact() {
+const Contact = () => {
 
   // const [formData, setFormData] = useState({
   //   name: "",
@@ -260,3 +260,5 @@ export default function Contact() {
     </section>
   )
 }
+
+export default Contact

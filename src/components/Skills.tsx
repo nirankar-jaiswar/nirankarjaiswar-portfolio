@@ -2,7 +2,12 @@
 
 import { motion } from "framer-motion"
 
-const skills = [
+interface Skill {
+  name: string
+  level: number
+}
+
+  const skills: Skill[] = [
   { name: "React.js", level: 85 },
   { name: "Vue.js", level: 85 },
   { name: "Javascript", level: 92 },
@@ -17,7 +22,7 @@ const skills = [
   { name: "Git/GitHub", level: 90 },
 ]
 
-const technologies = [
+const technologies: string[] = [
   "React",
   "Vue.js",
   "Next.js",
@@ -41,7 +46,7 @@ const technologies = [
   "Material UI",
 ]
 
-export default function Skills() {
+const Skills = () => {
   return (
     <section id="skills" className="py-20 bg-gray-900 bg-[radial-gradient(circle_at_center,rgba(120,50,255,0.15),transparent_70%)]">
       <div className="container mx-auto px-4">
@@ -117,3 +122,4 @@ export default function Skills() {
     </section>
   )
 }
+export default Skills
