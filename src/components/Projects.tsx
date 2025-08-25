@@ -50,8 +50,8 @@ const projects: Project[] = [
       "Personal portfolio showcasing projects and skills. Built with Vite for lightning-fast builds, Tailwind CSS for responsive UI, and Framer Motion for smooth animations.",
     image: portfolio,
     tags: ["React", "TypeScript", "Vite", "Tailwind CSS", "Framer Motion"],
-    github: "https://github.com/nirankar-jaiswar/edusera-chatbot-nirankar",
-    demo: "https://www.google.com/",
+    github: "https://github.com/nirankar-jaiswar/nirankarjaiswar-portfolio",
+    demo: "https://nirankar-potfolio.vercel.app/",
   },
 ]
 
