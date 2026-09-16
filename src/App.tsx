@@ -1,48 +1,30 @@
-"use client"
-
-import { useState, useEffect } from "react"
-import { AnimatePresence } from "framer-motion"
 import Navbar from "./components/Navbar"
 import Hero from "./components/Hero"
 import About from "./components/About"
-import Skills from "./components/Skills"
+import Experience from "./components/Experience"
 import Projects from "./components/Projects"
+import Research from "./components/Research"
+import Skills from "./components/Skills"
+import Education from "./components/Education"
 import Contact from "./components/Contact"
 import Footer from "./components/Footer"
-import Loader from "./components/Loader"
 
-const App = () => {
-  const [loading, setLoading] = useState<boolean>(true)
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false)
-    }, 2000)
-
-    return () => clearTimeout(timer) 
-  }, [])
-
+export default function App() {
   return (
-    <div className="bg-gray-900 text-gray-100 min-h-screen">
-      <AnimatePresence>
-        {loading ? (
-          <Loader key="loader" />
-        ) : (
-          <>
-            <Navbar />
-            <main>
-              <Hero />
-              <About />
-              <Skills />
-              <Projects />
-              <Contact />
-            </main>
-            <Footer />
-          </>
-        )}
-      </AnimatePresence>
-    </div>
+    <>
+      <a className="skip-link" href="#main">Skip to content</a>
+      <Navbar />
+      <main id="main" tabIndex={-1}>
+        <Hero />
+        <About />
+        <Experience />
+        <Projects />
+        <Research />
+        <Skills />
+        <Education />
+        <Contact />
+      </main>
+      <Footer />
+    </>
   )
 }
-
-export default App
