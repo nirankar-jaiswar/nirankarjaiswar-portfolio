@@ -1,94 +1,66 @@
-"use client"
-
-import { useState, useEffect } from "react"
-import { motion } from "framer-motion"
+import { useEffect, useRef, useState } from "react"
 import { Menu, X } from "lucide-react"
 
 const navItems = [
-  { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
+  { name: "Experience", href: "#experience" },
+  { name: "Featured Work", href: "#projects" },
+  { name: "Research & AI", href: "#research" },
   { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
+  { name: "Education", href: "#education" },
   { name: "Contact", href: "#contact" },
 ]
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
+  const toggleRef = useRef<HTMLButtonElement>(null)
+  const headerRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
+    const breakpoint = window.matchMedia("(min-width: 1100px)")
+    const close = () => setIsOpen(false)
+    breakpoint.addEventListener("change", close)
+    return () => breakpoint.removeEventListener("change", close)
   }, [])
 
-  return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-gray-900/90 backdrop-blur-md shadow-lg" : "bg-transparent"
-      }`}
-    >
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="text-xl font-bold text-purple-500"
-        >
-          <a href="#home">Nirankar Jaiswar</a>
-        </motion.div>
+  useEffect(() => {
+    if (!isOpen) return
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsOpen(false)
+        toggleRef.current?.focus()
+      }
+    }
+    const onPointerDown = (event: PointerEvent) => {
+      if (!headerRef.current?.contains(event.target as Node)) setIsOpen(false)
+    }
+    document.addEventListener("keydown", onKeyDown)
+    document.addEventListener("pointerdown", onPointerDown)
+    return () => {
+      document.removeEventListener("keydown", onKeyDown)
+      document.removeEventListener("pointerdown", onPointerDown)
+    }
+  }, [isOpen])
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-8">
-          {navItems.map((item, index) => (
-            <motion.a
-              key={item.name}
-              href={item.href}
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 * index }}
-              className="text-gray-300 hover:text-purple-400 transition-colors  transform hover:scale-105 font-medium"
-            >
-              {item.name}
-            </motion.a>
-          ))}
-        </nav>
+  const navigate = (href: string) => {
+    setIsOpen(false)
+    // Move keyboard focus to the destination before collapsing the mobile menu.
+    const section = document.querySelector<HTMLElement>(href)
+    section?.setAttribute("tabindex", "-1")
+    section?.focus({ preventScroll: true })
+  }
 
-        {/* Mobile Navigation Toggle */}
-        <button className="md:hidden text-gray-300 focus:outline-none" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-
-      {/* Mobile Navigation Menu */}
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          exit={{ opacity: 0, height: 0 }}
-          className="md:hidden bg-gray-800 shadow-lg"
-        >
-          <div className="container mx-auto px-4 py-4">
-            <div className="flex flex-col space-y-4">
-              {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-gray-300 hover:text-purple-400 transition-colors py-2"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.name}
-                </a>
-              ))}
-            </div>
-          </div>
-        </motion.div>
-      )}
-    </motion.header>
-  )
+  return <header className="site-header" ref={headerRef} onBlur={event => {
+    if (!event.currentTarget.contains(event.relatedTarget)) setIsOpen(false)
+  }}>
+    <div className="page-width nav-bar">
+      <a className="brand" href="#home" onClick={() => navigate("#home")}>Nirankar Jaiswar</a>
+      <button ref={toggleRef} className="menu-toggle" type="button" aria-label={isOpen ? "Close navigation" : "Open navigation"} aria-expanded={isOpen} aria-controls="primary-navigation" onClick={() => setIsOpen(open => !open)}>
+        {isOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
+      </button>
+      <nav id="primary-navigation" className={`navigation${isOpen ? " is-open" : ""}`} aria-label="Main navigation">
+        {navItems.map(item => <a key={item.href} href={item.href} onClick={() => navigate(item.href)}>{item.name}</a>)}
+      </nav>
+    </div>
+  </header>
 }
